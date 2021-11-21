@@ -12,6 +12,9 @@ const App = () => {
         />
       </div>
       <h1>Hello PhotoApp</h1>
+
+      <Post />
+      <Post />
       <Post />
     </div>
   );

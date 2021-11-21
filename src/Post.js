@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 const Post = () => {
   return (
     <div className="post">
-      <div className="post__avatar">
+      <div className="post__header">
         <Avatar
           className="post__avatar"
           alt="User2"
