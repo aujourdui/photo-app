@@ -2,7 +2,8 @@ import React from "react";
 import "./Post.css";
 import Avatar from "@mui/material/Avatar";
 
-const Post = () => {
+const Post = (props) => {
+  const { username, caption, imageUrl } = props;
   return (
     <div className="post">
       <div className="post__header">
@@ -11,16 +12,13 @@ const Post = () => {
           alt="User2"
           src="/static/images/avatar/1.jpg"
         />
-        <h3>Username</h3>
+        <h3>{username}</h3>
       </div>
-      <img
-        className="post__image"
-        src="https://images6.alphacoders.com/337/337780.jpg"
-        alt=""
-      />
+      <img className="post__image" src={imageUrl} alt="" />
 
       <h4 className="post__text">
-        <strong>User1:</strong>this photo is amazing!
+        <strong>{username}:</strong>
+        {caption}
       </h4>
     </div>
   );
