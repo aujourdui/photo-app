@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Post from "./Post";
 import { db } from "./firebase";
-import Modal from "@mui/material/Modal";
-import { makeStyles } from "@mui/styles";
-import { Button } from "@mui/material";
+import Modal from "@material-ui/core/Modal";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 
 const getModalStyle = () => {
   const top = 50;
