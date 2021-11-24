@@ -41,13 +41,6 @@ const App = () => {
       if (authUser) {
         console.log(authUser);
         setUser(authUser);
-
-        if (authUser.displayName) {
-        } else {
-          return authUser.updateProfile({
-            displayName: username,
-          });
-        }
       } else {
         setUser(null);
       }
@@ -73,6 +66,11 @@ const App = () => {
     event.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        authUser.user.updateProfile({
+          displayName: username,
+        });
+      })
       .catch((error) => alert(error.message));
   };
 
