@@ -94,7 +94,6 @@ const App = () => {
       ) : (
         <h3>Sorry you need to login to upload</h3>
       )}
-
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle} className={classes.paper}>
           <center>
@@ -126,7 +125,6 @@ const App = () => {
           </form>
         </div>
       </Modal>
-
       <Modal open={openSignIn} onClose={() => setOpenSignIn(false)}>
         <div style={modalStyle} className={classes.paper}>
           <center>
@@ -151,11 +149,9 @@ const App = () => {
           </form>
         </div>
       </Modal>
-
       <div className="app__header">
         <h3>PhotoApp</h3>
       </div>
-
       {user ? (
         <Button onClick={() => auth.signOut()}>Logout</Button>
       ) : (
@@ -164,9 +160,7 @@ const App = () => {
           <Button onClick={() => setOpen(true)}>Sign Up</Button>
         </div>
       )}
-
       <h1>Hello PhotoApp</h1>
-
       {posts.map(({ post, id }) => (
         <Post
           key={id}
