@@ -6,7 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Input } from "@material-ui/core";
 import ImageUpload from "./ImageUpload";
-import InstagramEmbed from "react-instagram-embed";
+// import InstagramEmbed from "react-instagram-embed";
 
 // for instagramEmbed
 // const appID = "832203337499032";
@@ -47,7 +47,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        // console.log(authUser);
+        console.log(authUser);
         setUser(authUser);
       } else {
         setUser(null);
@@ -177,7 +177,7 @@ const App = () => {
           ))}
         </div>
         <div className="app__posts-right">
-          <InstagramEmbed
+          {/* <InstagramEmbed
             url="https://instagram/p/Zw9o4/"
             // clientAccessToken={clientAccessToken}
             maxWidth={320}
@@ -189,7 +189,7 @@ const App = () => {
             onSuccess={() => {}}
             onAfterRender={() => {}}
             onFailure={() => {}}
-          />
+          /> */}
         </div>
       </div>
 
