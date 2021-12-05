@@ -165,10 +165,11 @@ const App = () => {
       </div>
       <div className="app__posts">
         <div className="app__posts-left">
-          {posts.map(({ post, id }) => (
+          {posts.map(({ id, post }) => (
             <Post
               key={id}
               postId={id}
+              user={user}
               username={post.username}
               caption={post.caption}
               imageUrl={post.imageUrl}

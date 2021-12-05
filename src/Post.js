@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Post.css";
+
+import firebase from "firebase";
 import { db } from "./firebase";
 import Avatar from "@material-ui/core/Avatar";
 
 const Post = (props) => {
-  const { postId, username, caption, imageUrl } = props;
+  const { postId, user, username, caption, imageUrl } = props;
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
 
@@ -15,6 +17,7 @@ const Post = (props) => {
         .collection("posts")
         .doc(postId)
         .collection("comments")
+        // .orderBy("timestamp", "desc")
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
@@ -25,7 +28,16 @@ const Post = (props) => {
     };
   }, [postId]);
 
-  const postComment = () => {};
+  const postComment = (event) => {
+    event.preventDefault();
+
+    db.collection("posts").doc(postId).collection("comments").add({
+      text: comment,
+      username: user.displayName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    setComment("");
+  };
 
   return (
     <div className="post">
@@ -43,6 +55,14 @@ const Post = (props) => {
         <strong>{username}:</strong>
         {caption}
       </h4>
+
+      <div className="post__comments">
+        {comments.map((comment) => (
+          <p>
+            <strong>{comment.username}</strong> {comment.text}
+          </p>
+        ))}
+      </div>
 
       <form className="post__comment-box">
         <input
