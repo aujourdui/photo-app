@@ -6,17 +6,23 @@
   background-color: #fafafa;
 }
 
+.app__posts-right {
+  margin-left: 20px;
+}
+
 .app__header {
   background-color: white;
   padding: 20px;
   object-fit: contain;
   border-bottom: 1px solid lightgray;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
-.app-posts {
+.app__posts {
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .app__signup {
