@@ -64,23 +64,25 @@ const Post = (props) => {
         ))}
       </div>
 
-      <form className="post__comment-box">
-        <input
-          className="post__input"
-          type="text"
-          placeholder="Add a comment..."
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <button
-          className="post__button"
-          disabled={!comment}
-          type="text"
-          onClick={postComment}
-        >
-          Post
-        </button>
-      </form>
+      {user && (
+        <form className="post__comment-box">
+          <input
+            className="post__input"
+            type="text"
+            placeholder="Add a comment..."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button
+            className="post__button"
+            disabled={!comment}
+            type="text"
+            onClick={postComment}
+          >
+            Post
+          </button>
+        </form>
+      )}
     </div>
   );
 };

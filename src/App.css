@@ -11,12 +11,15 @@
 }
 
 .app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: white;
   padding: 20px;
   object-fit: contain;
   border-bottom: 1px solid lightgray;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
 
 .app__posts {
